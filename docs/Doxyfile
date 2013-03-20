@@ -1,0 +1,16 @@
+#
+
+DOXYFILE_ENCODING      = UTF-8
+PROJECT_NAME           = "DblMatrix"
+PROJECT_BRIEF          =
+OUTPUT_DIRECTORY       =
+OUTPUT_LANGUAGE        = Russian
+INPUT                  = ..\DblMatrix.pas.cpp
+INPUT_ENCODING         = CP1251
+FILE_PATTERNS          = *.cpp
+RECURSIVE              = NO
+GENERATE_LATEX         = NO
+
+SHOW_USED_FILES        = NO
+QUIET                  = YES
+EXTRACT_PRIVATE        = YES
