@@ -1,6 +1,3 @@
-{!
-\brief Модуль работы с матрицами.
-}
 unit DblMatrix;
 
 interface
@@ -9,68 +6,78 @@ uses Math, SysUtils;
 
 type
 	{!
-	\brief   Одномерный динамический массив чисел с плавающей точкой.
+	\brief   A one-dimensional dynamic array of floating point numbers.
 	\typedef TDblArray
 	}
 	TDblArray = Array of Double;
 
 	{!
-	\brief   Двумерный динамический массив чисел с плавающей точкой.
+	\brief   A two-dimensional dynamic array of floating point numbers.
 	\typedef TDblArray
 	}
 	TDblArray2d = Array of TDblArray;
 
 	{!
-	\brief Класс по работе с матрицами.
+	\brief Class to work with matrices.
 	\class TDblMatrix
 	}
 	TDblMatrix = class
 	private
-		//! Ширина матрицы
+		//! Width of the matrix
 		iWidth : Cardinal;
-		//! Высота матрицы
+		//! Height of the matrix
 		iHeight: Cardinal;
-		//! Данные
+		//! Matrix's data
 		aData  : TDblArray2d;
 		{!
-		\brief Получение значения элемента.
-		\param row Номер строки (начиная с 0)
-		\param col Номер столбца (начиная с 0)
-		\return Значение элемента
+		\brief Getting the value of the item.
+		\param row	Row number (starting with 0)
+		\param col	Column number (starting with 0)
+		\return		Value of the matrix cell
 		}
 		function getItem( row, col: Cardinal ): Double;
 		{!
-		\brief Задание значения элемента.
-		\param row Номер строки (начиная с 0)
-		\param col Номер столбца (начиная с 0)
-		\param val Новое значение элемента
+		\brief Setting value of the item.
+		\param row	Row number (starting with 0)
+		\param col	Column number (starting with 0)
+		\param val	New value of the matrix cell
 		}
 		procedure setItem( row, col: Cardinal; val: Double );
 	public
 		{!
-		\brief Конструктор класса.
-		\param w Ширина новой матрицы
-		\param h Высота новой матрицы
+		\brief The class contructor.
+		\param w	Width of the new matrix
+		\param h	Height of the new matrix
 		}
 		constructor create( w, h: Cardinal );
 		{!
-		\brief Деструктор класса
+		\brief The class destructor.
 		}
 		destructor destroy(); override;
 		{!
-		\brief Задание размеров матрицы.
-		\param w Новое значение ширины
-		\param h Новое значение высоты
-		\return TRUE в случае удачи, иначе FALSE
+		\brief Set new size of the matrix.
+		\param w	New width of the matrix
+		\param h	New height of the matrix
+		\return		TRUE if success, otherwise FALSE
 		}
 		function setSize( w, h: Cardinal ): Boolean;
 		{!
-		\brief Получение и задание элементов матрицы.
+		\brief Get/set the matrix cell.
 		\property item[ row, col: Cardinal ]: Double
-		\param row Номер строки (начиная с 0)
-		\param col Номер столбца (начиная с 0)
+		\param row	Row number (starting with 0)
+		\param col	Column number (starting with 0)
 		}
 		property item[ row, col: Cardinal ]: Double read getItem write setItem;
+		{!
+		\brief Getting width of the matrix.
+		\property width: Cardinal
+		}
+		property width: Cardinal read iWidth;
+		{!
+		\brief Getting height of the matrix.
+		\property height: Cardinal
+		}
+		property height: Cardinal read iHeight;
 	end;
 
 
@@ -87,7 +94,6 @@ end;
 
 destructor TDblMatrix.destroy();
 begin
-	//
 	inherited;
 end;
 
